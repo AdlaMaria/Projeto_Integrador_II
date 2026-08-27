@@ -43,6 +43,8 @@ Painel eletrônico: apresenta a senha que está sendo chamada.
 O funcionamento inicia quando o aluno chega à direção e retira uma senha no dispositivo. Essa senha passa a fazer parte da fila de espera.
 Quando chega a vez do aluno, a direção chama a próxima senha. A senha chamada é apresentada no painel eletrônico, permitindo que o aluno identifique que chegou o momento de ser atendido.
 Após visualizar sua senha, o aluno se dirige à direção para realizar o atendimento.
-8. Considerações Finais
+
+- **Link para o Trello** https://trello.com/b/pd5N1CC0/painelfila-escolar
+9. Considerações Finais
 A modelagem apresentada representa o funcionamento inicial do PainelFila Escolar de maneira simples e organizada. O fluxo permite visualizar as principais etapas da solução e estabelece uma base para o desenvolvimento das próximas fases do projeto.
 O diagrama poderá servir como referência durante a execução e validação da solução, contribuindo para manter o desenvolvimento alinhado ao objetivo definido no projeto.
