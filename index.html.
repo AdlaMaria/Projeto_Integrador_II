@@ -9,50 +9,50 @@
         body {
             font-family: Arial, sans-serif;
             background: #f2f2f2;
-            margin: 0;
-            padding: 30px;
             text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
         }
 
         h1 {
             margin-bottom: 10px;
         }
 
-        .container {
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .painel {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            margin-top: 20px;
-            box-shadow: 0 2px 8px #ccc;
-        }
-
         .senha-atual {
-            font-size: 50px;
+            font-size: 60px;
             font-weight: bold;
-            margin: 20px;
+            margin: 25px;
         }
 
         button {
-            padding: 12px 18px;
-            margin: 5px;
+            padding: 14px 20px;
+            margin: 8px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
         }
 
-        button:hover {
-            opacity: 0.85;
+        .retirar {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .chamar {
+            background: #2196F3;
+            color: white;
         }
 
         .fila {
+            margin-top: 25px;
             text-align: left;
-            margin-top: 20px;
         }
 
         li {
@@ -66,138 +66,72 @@
     <div class="container">
 
         <h1>PainelFila Escolar</h1>
-        <p>Sistema de organização e controle de filas</p>
 
-        <div class="painel">
+        <p>Organização do atendimento e controle de filas da escola.</p>
 
-            <h2>Senha chamada</h2>
+        <h2>Senha chamada</h2>
 
-            <div id="senhaAtual" class="senha-atual">
-                ---
-            </div>
-
-            <button onclick="retirarSenha()">
-                Retirar senha
-            </button>
-
-            <button onclick="chamarProxima()">
-                Chamar próxima senha
-            </button>
-
-            <button onclick="repetirSenha()">
-                Repetir senha
-            </button>
-
-            <button onclick="finalizarAtendimento()">
-                Finalizar atendimento
-            </button>
-
+        <div id="senhaAtual" class="senha-atual">
+            ---
         </div>
 
-        <div class="painel fila">
+        <button class="retirar" onclick="retirarSenha()">
+            Retirar senha
+        </button>
 
+        <button class="chamar" onclick="chamarSenha()">
+            Chamar próxima senha
+        </button>
+
+        <div class="fila">
             <h2>Fila de espera</h2>
-
-            <ul id="fila">
-                <li>Nenhuma senha aguardando.</li>
-            </ul>
-
+            <ul id="fila"></ul>
         </div>
 
     </div>
 
     <script>
+        let numeroSenha = 0;
+        let fila = [];
 
-        let fila = JSON.parse(localStorage.getItem("fila")) || [];
-        let numeroSenha = Number(localStorage.getItem("numeroSenha")) || 0;
-        let senhaAtual = localStorage.getItem("senhaAtual") || null;
+        function retirarSenha() {
+            numeroSenha++;
 
-        function salvarDados() {
-            localStorage.setItem("fila", JSON.stringify(fila));
-            localStorage.setItem("numeroSenha", numeroSenha);
-            localStorage.setItem("senhaAtual", senhaAtual || "");
+            let senha = "A" + String(numeroSenha).padStart(3, "0");
+
+            fila.push(senha);
+
+            atualizarFila();
+
+            alert("Sua senha é " + senha);
         }
 
-        function atualizarTela() {
-
-            const elementoSenha = document.getElementById("senhaAtual");
-            const elementoFila = document.getElementById("fila");
-
-            elementoSenha.textContent = senhaAtual || "---";
-
-            elementoFila.innerHTML = "";
-
+        function chamarSenha() {
             if (fila.length === 0) {
-                const item = document.createElement("li");
-                item.textContent = "Nenhuma senha aguardando.";
-                elementoFila.appendChild(item);
+                alert("Não há senhas aguardando atendimento.");
                 return;
             }
 
-            fila.forEach(function(senha) {
+            let senha = fila.shift();
 
-                const item = document.createElement("li");
+            document.getElementById("senhaAtual").textContent = senha;
+
+            atualizarFila();
+        }
+
+        function atualizarFila() {
+            let lista = document.getElementById("fila");
+
+            lista.innerHTML = "";
+
+            fila.forEach(function(senha) {
+                let item = document.createElement("li");
 
                 item.textContent = senha;
 
-                elementoFila.appendChild(item);
+                lista.appendChild(item);
             });
         }
-
-        function retirarSenha() {
-
-            numeroSenha++;
-
-            const novaSenha = "A" + String(numeroSenha).padStart(3, "0");
-
-            fila.push(novaSenha);
-
-            salvarDados();
-            atualizarTela();
-
-            alert("Sua senha é " + novaSenha);
-        }
-
-        function chamarProxima() {
-
-            if (fila.length === 0) {
-                alert("Não há senhas aguardando.");
-                return;
-            }
-
-            senhaAtual = fila.shift();
-
-            salvarDados();
-            atualizarTela();
-        }
-
-        function repetirSenha() {
-
-            if (!senhaAtual) {
-                alert("Nenhuma senha foi chamada.");
-                return;
-            }
-
-            alert("Repetindo a senha " + senhaAtual);
-        }
-
-        function finalizarAtendimento() {
-
-            if (!senhaAtual) {
-                alert("Não há atendimento em andamento.");
-                return;
-            }
-
-            alert("Atendimento da senha " + senhaAtual + " finalizado.");
-
-            senhaAtual = null;
-
-            salvarDados();
-            atualizarTela();
-        }
-
-        atualizarTela();
-
     </script>
 
 </body>
