@@ -1,0 +1,52 @@
+body {
+font-family: Arial, sans-serif;
+background: #f2f2f2;
+text-align: center;
+padding: 30px;
+}
+
+.container {
+max-width: 700px;
+margin: auto;
+background: white;
+padding: 30px;
+border-radius: 12px;
+}
+
+h1 {
+margin-bottom: 10px;
+}
+
+.senha-atual {
+font-size: 60px;
+font-weight: bold;
+margin: 25px;
+}
+
+button {
+padding: 14px 20px;
+margin: 8px;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+font-size: 16px;
+}
+
+.retirar {
+background: #4CAF50;
+color: white;
+}
+
+.chamar {
+background: #2196F3;
+color: white;
+}
+
+.fila {
+margin-top: 25px;
+text-align: left;
+}
+
+li {
+margin: 8px 0;
+}
