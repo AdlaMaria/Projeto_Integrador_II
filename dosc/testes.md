@@ -17,9 +17,7 @@ Procedimento:
 
 Resultado esperado: O sistema deve gerar uma senha e disponibilizá-la para o aluno.
 
-Resultado obtido: Pendente de execução.
-
----
+Resultado obtido: Aprovado!! A senha foi gerada corretamente. 
 
 Teste 02 – Geração das senhas em ordem
 
@@ -32,7 +30,7 @@ Procedimento:
 
 Resultado esperado: As senhas devem ser geradas em ordem, sem repetição ou quebra da sequência.
 
-Resultado obtido: Pendente de execução.
+Resultado obtido: Aprovado!! As senhas foram geradas em sequência, sem repetição.
 
 Teste 03 – Organização da fila de espera
 
@@ -45,9 +43,8 @@ Procedimento:
 
 Resultado esperado: As senhas devem permanecer organizadas de acordo com a ordem de chegada.
 
-Resultado obtido: Pendente de execução.
+Resultado obtido: Aprovado!! As senhas permaneceram organizadas na ordem de chegada.
 
----
 
 Teste 04 – Chamada da senha
 
@@ -60,7 +57,7 @@ Procedimento:
 
 Resultado esperado: A senha chamada deve ser apresentada corretamente para o usuário.
 
-Resultado obtido: Pendente de execução.
+Resultado obtido: Aprovado!! A próxima senha da fila foi chamada corretamente.
 
 
 Teste 05 – Exibição da senha no painel
@@ -74,7 +71,7 @@ Procedimento:
 
 Resultado esperado: A senha chamada deve aparecer de forma clara no painel.
 
-Resultado obtido: Pendente de execução.
+Resultado obtido: Aprovado!! A senha chamada foi exibida corretamente no painel.
 
 Teste 06 – Retirada da senha da fila
 
@@ -86,7 +83,7 @@ Procedimento:
 
 Resultado esperado: A senha chamada não deve continuar na lista de senhas aguardando atendimento.
 
-Resultado obtido: Pendente de execução.
+Resultado obtido: Aprovado!! A senha chamada deixou de aparecer na fila de espera.
 
  3. Validação dos Requisitos
 
@@ -103,4 +100,4 @@ Resultado obtido: Pendente de execução.
 
 Os testes apresentados neste documento foram definidos para verificar as principais funcionalidades do PainelFila Escolar.
 
-A execução prática dos testes será realizada durante a etapa de validação do projeto. Após a execução, os resultados serão atualizados neste documento, registrando quais funcionalidades foram aprovadas e quais precisam de ajustes.
+Os testes funcionais foram executados e as principais funcionalidades do PainelFila Escolar apresentaram o resultado esperado. Dessa forma, os requisitos relacionados à retirada, geração, organização, chamada e exibição das senhas foram validados.
