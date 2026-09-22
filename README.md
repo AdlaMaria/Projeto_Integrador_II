@@ -28,7 +28,7 @@ O projeto tem como objetivo facilitar a retirada de senhas pelos alunos e ajudar
 
  Documentação
 
-Os requisitos estão no arquivo `docs/requisitos.md`.
+Os requisitos estão no arquivo `dosc/requisitos.md`.
 
-Os testes estão no arquivo `docs/testes.md`.
+Os testes estão no arquivo `dosc/testes.md`.
 
